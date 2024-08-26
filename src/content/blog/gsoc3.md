@@ -2,7 +2,7 @@
 title: "Google Summer of Code final report"
 description: "Final report for GSoC 2024"
 pubDate: "August 26, 2024"
-heroImage: "/itemPreview.png"
+heroImage: "/Amati/amati++.png"
 ---
 
 # Background
@@ -48,15 +48,15 @@ At first, I wanted to have one factory and cast between them, but due to the pol
 # The current state
 ## Here’s what the current plugin looks like:
 ### Editor
-![Editor](/public/Amati/amati++.png)
+![Editor](/public/amati++.png)
 ### Parameter 
-![Parameter](/public/Amati/param.png)
+![Parameter](/public/param.png)
 ### Console 
-![Console](/public/Amati/console.png)
+![Console](/public/console.png)
 ### MIDI keyboard
-![MIDI keyboard](/public/Amati/midi.png)
+![MIDI keyboard](/public/midi.png)
 ### Settings
-![Settings](/public/Amati/settings.png)
+![Settings](/public/settings.png)
 
 In the original, the faust script is compiled right as it loads, and I didn’t like that. I feel like the user should have full control over when the program should compile. Thus I changed it so the user has to press the compile button for the program to compile. I have also added a start and stop button so the user can choose when they want to run the Faust program, as opposed to starting right away.
 
@@ -82,6 +82,7 @@ I learned a lot of C++, CMake and the JUCE framework. I tried to implement a cou
 I have also learned about what it takes to update a plugin parameter while the audio thread is running, and JUCE’s way of handling it through the Audio Processor Value Tree State.
 # Conclusion
 Overall, I enjoyed this project immensely, it gave me an opportunity to work on my own schedule and contribute to an existing ecosystem.
+Check out the source code (and releases) on Github at the following link: https://github.com/Orisu179/AmatiPP
 
 Thanks to Google for sponsoring this program, and GRAME for accepting my proposal and creating Faust. To finish this off, I want to give a thanks to the four of my mentors:
 - Kamil Kisiel, for willing to meet up with me in person last year despite me being a total stranger, and agreeing to mentor me for this project.
