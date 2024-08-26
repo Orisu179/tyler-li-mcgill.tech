@@ -47,7 +47,16 @@ if the user doesn’t define it themselves. With Libfaust, there are two factory
 At first, I wanted to have one factory and cast between them, but due to the polyphonic factory being a subclass of the regular factory, I could not cast upwards. So in the situation where the user compiles polyphonic code and then tries to compile without it, the program will crash. So as a solution, I included both regular and poly factories and selected the appropriate factory two depending on whether the user writes Faust code that requires polyphonic support.
 # The current state
 ## Here’s what the current plugin looks like:
-*Insert picture of current plugin
+### Editor
+![Editor](/public/Amati/amati++.png)
+### Parameter 
+![Parameter](/public/Amati/param.png)
+### Console 
+![Console](/public/Amati/console.png)
+### MIDI keyboard
+![MIDI keyboard](/public/Amati/midi.png)
+### Settings
+![Settings](/public/Amati/settings.png)
 
 In the original, the faust script is compiled right as it loads, and I didn’t like that. I feel like the user should have full control over when the program should compile. Thus I changed it so the user has to press the compile button for the program to compile. I have also added a start and stop button so the user can choose when they want to run the Faust program, as opposed to starting right away.
 
