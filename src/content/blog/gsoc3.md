@@ -39,7 +39,12 @@ When I first wrote my proposal, I looked at other popular code editors (like VSc
 
 Next was MIDI support, while the implementation for it was straightforward, there were a lot of problems with parameters not updating. For example, when a MIDI message changes a parameter, it won’t be updated in the interface. To fix this, I had to check if the values are the same in the [AudioProcessorValueTreeState](https://docs.juce.com/master/classAudioProcessorValueTreeState.html) which I used for storing parameter state, and the parameter state within the Faust instance. While I came up with a more efficient way of checking at the time, MIDI isn’t the only way to modify parameters. So while inefficient, it’s what my mentor, Stéphane Letz, and I have decided on.
 
-For polyphonic support, I used regular expressions to get the metadata within ```declare options```. So if the user has ```declare options "[midi:on][nvoices:n]";``` in their code (where n is the maximum number of voices that they want to use), it means that they want to use a polyphonic instrument. For more information, check out the (official documentation)[https://faustdoc.grame.fr/manual/midi/#midi-polyphony-support]. However, I was getting an “undefined effect” error when compiling, this is due to the Faust compiler itself complaining. For polyphonic instruments in Faust, the user can define an ```effect``` value which will then automatically be connected to the process. However, if the user doesn’t define it, an error will appear. Thus, I had to append a line of code to the user-defined Faust program source code to make it go away. It defines the effect to nothing: ```effect = _;``` if the user doesn’t define it themselves. With Libfaust, there are two factory classes used to generate a Faust instance, a regular DSP factory and a polyphonic DSP factory. At first, I wanted to have one factory and cast between them, but due to the polyphonic factory being a subclass of the regular factory, I could not cast upwards. So in the situation where the user compiles polyphonic code and then tries to compile without it, the program will crash. So as a solution, I included both regular and poly factories and selected the appropriate factory two depending on whether the user writes Faust code that requires polyphonic support.
+For polyphonic support, I used regular expressions to get the metadata within ```declare options```. So if the user has ```declare options "[midi:on][nvoices:n]";``` in their code (where n is the maximum number of voices that they want to use), it means that they want to use a polyphonic instrument. For more information, check out the (official documentation)[https://faustdoc.grame.fr/manual/midi/#midi-polyphony-support]. However, I was getting an “undefined effect” error when compiling, this is due to the Faust compiler itself complaining. For polyphonic instruments in Faust, the user can define an ```effect``` value which will then automatically be connected to the process. However, if the user doesn’t define it, an error will appear. Thus, I had to append a line of code to the user-defined Faust program source code to make it go away. It defines the effect to nothing: 
+```
+effect = _;
+``` 
+if the user doesn’t define it themselves. With Libfaust, there are two factory classes used to generate a Faust instance, a regular DSP factory and a polyphonic DSP factory. 
+At first, I wanted to have one factory and cast between them, but due to the polyphonic factory being a subclass of the regular factory, I could not cast upwards. So in the situation where the user compiles polyphonic code and then tries to compile without it, the program will crash. So as a solution, I included both regular and poly factories and selected the appropriate factory two depending on whether the user writes Faust code that requires polyphonic support.
 # The current state
 ## Here’s what the current plugin looks like:
 *Insert picture of current plugin
@@ -49,7 +54,14 @@ In the original, the faust script is compiled right as it loads, and I didn’t 
 There’s also a new MIDI keyboard section that the user can use, just in case the DAW/or whatever the user is using doesn’t have a virtual keyboard.
 
 For polyphonic and MIDI, the plugin should know automatically if they are required through the use of metadata like this:
-```declare options "[midiI:on]";``` or ```declare options "[midi:on][nvoices:12]";``` for polyphonic. Regular expressions were used to match these patterns.
+```
+declare options "[midi:on]";
+```
+or 
+```
+declare options "[midi:on][nvoices:12]";
+``` 
+for polyphonic. Regular expressions were used to match these patterns.
 
 # What's left to do
 I want to finish SVG generation, along with writing some test cases. There are also some metadata features that I could implement. I will continue working on this project even after the GSoC period.
