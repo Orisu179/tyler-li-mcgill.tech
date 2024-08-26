@@ -74,8 +74,8 @@ I have also learned about what it takes to update a plugin parameter while the a
 # Conclusion
 Overall, I enjoyed this project immensely, it gave me an opportunity to work on my own schedule and contribute to an existing ecosystem.
 
-Thanks to Google for sponsoring this program, and GRAME for accepting my proposal and creating Faust. Also I want to give a special thanks to:
-Kamil Kisiel, for willing to meet up with me in person last year despite me being a total stranger.
-Grégoire Locqueville for his amazing pre-existing work on the original Amati project.
-And of course, huge thanks to two of my mentors, Thomas and Stephane for their bi-weekly support throughout the summer
+Thanks to Google for sponsoring this program, and GRAME for accepting my proposal and creating Faust. To finish this off, I want to give a thanks to the four of my mentors:
+- Kamil Kisiel, for willing to meet up with me in person last year despite me being a total stranger, and agreeing to mentor me for this project.
+- Grégoire Locqueville for his amazing pre-existing work on the original Amati project.
+- And of course, huge thanks to two of my mentors, Thomas and Stephane for their bi-weekly support throughout the summer
 
