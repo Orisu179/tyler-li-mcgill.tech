@@ -2,7 +2,7 @@
 title: "Google Summer of Code final report"
 description: "Final report for GSoC 2024"
 pubDate: "August 26, 2024"
-heroImage: "/Amati/amati++.png"
+heroImage: "/amati++.png"
 ---
 
 # Background
