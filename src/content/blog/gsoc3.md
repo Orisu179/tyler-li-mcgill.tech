@@ -48,15 +48,15 @@ At first, I wanted to have one factory and cast between them, but due to the pol
 # The current state
 ## Here’s what the current plugin looks like:
 ### Editor
-![Editor](/public/amati++.png)
+![Editor](/amati++.png)
 ### Parameter 
-![Parameter](/public/param.png)
+![Parameter](/param.png)
 ### Console 
-![Console](/public/console.png)
+![Console](/console.png)
 ### MIDI keyboard
-![MIDI keyboard](/public/midi.png)
+![MIDI keyboard](/midi.png)
 ### Settings
-![Settings](/public/settings.png)
+![Settings](/settings.png)
 
 In the original, the faust script is compiled right as it loads, and I didn’t like that. I feel like the user should have full control over when the program should compile. Thus I changed it so the user has to press the compile button for the program to compile. I have also added a start and stop button so the user can choose when they want to run the Faust program, as opposed to starting right away.
 
