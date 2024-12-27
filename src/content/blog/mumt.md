@@ -2,7 +2,7 @@
 title: "MUMT 306 Final project"
 description: "This is the final project report for MUMT 306 class"
 pubDate: "Dec 26, 2024"
-heroImage: "/itemPreview.png"
+heroImage: "/project.png"
 ---
 
 This blog post describes what I did for the final project of the course MUMT306 in Fall 2024
